@@ -1,0 +1,32 @@
+html {
+  background: url("assets/bg-img1.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  /* background: #000;
+  color: #ccc; */
+  margin: 0 0 0 18pt;
+  font-family: Optima, sans-serif;
+  font-size: 16pt;
+}
+
+a {
+  color: #117;
+  text-decoration: none;
+}
+
+
+#main {
+  padding-top: 18px;
+  width: 70%;
+  margin-left: 15%;
+}
+
+#main div {
+  font-weight: bold;
+  padding-bottom: 9px;
+}
