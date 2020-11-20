@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <!--
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <!--
 Love Letters reimplementation
 copyright (c) 2014 Nick Montfort <nickm@nickm.com>
 based on a 1952 program by Christopher Strachey
@@ -28,122 +28,140 @@ Updated 28 August 2019 to add a link to "The Ferranti Mark 1 Gallery."
 Updated Nov 2020 for the "Algorithmic poetry" class, School of Machines and Make Believe
 
 -->
-    <style type="text/css">
-        /* <![CDATA[ */
+  <style type="text/css">
+    /* <![CDATA[ */
 
-        body {
-            background: #000;
-            color: #ccc;
-            margin: 0 0 0 18pt;
-            font-family: Optima, sans-serif;
-            font-size: 16pt;
+    body {
+      background: #000;
+      color: #ccc;
+      margin: 0 0 0 18pt;
+      font-family: Optima, sans-serif;
+      font-size: 16pt;
+    }
+
+    a {
+      color: #117;
+      text-decoration: none;
+    }
+
+    #main {
+      padding-top: 18px;
+      width: 70%;
+      margin-left: 15%;
+    }
+
+    #main div {
+      font-weight: bold;
+      padding-bottom: 9px;
+    }
+
+    /* ]]> */
+  </style>
+  <script type="text/javascript">
+    var t = 0,
+      first = ['DARLING', 'DEAR', 'HONEY', 'JEWEL'],
+      second = ['DUCK', 'LOVE', 'MOPPET', 'SWEETHEART'],
+      adjectives = ['ADORABLE', 'AFFECTIONATE', 'AMOROUS', 'ANXIOUS', 'ARDENT', 'AVID', 'BREATHLESS', 'BURNING', 'COVETOUS', 'CRAVING', 'CURIOUS', 'DARLING', 'DEAR', 'DEVOTED', 'EAGER', 'EROTIC', 'FERVENT', 'FOND', 'IMPATIENT', 'KEEN', 'LITTLE',
+        'LOVEABLE', 'LOVESICK', 'LOVING', 'PASSIONATE', 'PRECIOUS', 'SWEET', 'SYMPATHETIC', 'TENDER', 'UNSATISFIED', 'WISTFUL'
+      ],
+      nouns = ['ADORATION', 'AFFECTION', 'AMBITION', 'APPETITE', 'ARDOUR', 'CHARM', 'DESIRE', 'DEVOTION', 'EAGERNESS', 'ENCHANTMENT', 'ENTHUSIASM', 'FANCY', 'FELLOW FEELING', 'FERVOUR', 'FONDNESS', 'HEART', 'HUNGER', 'INFATUATION', 'LIKING',
+        'LONGING', 'LOVE', 'LUST', 'PASSION', 'RAPTURE', 'SYMPATHY', 'TENDERNESS', 'THIRST', 'WISH', 'YEARNING'
+      ],
+      adverbs = ['AFFECTIONATELY', 'ANXIOUSLY', 'ARDENTLY', 'AVIDLY', 'BEAUTIFULLY', 'BREATHLESSLY', 'BURNINGLY', 'COVETOUSLY', 'CURIOUSLY', 'DEVOTEDLY', 'EAGERLY', 'FERVENTLY', 'FONDLY', 'IMPATIENTLY', 'KEENLY', 'LOVINGLY', 'PASSIONATELY',
+        'SEDUCTIVELY', 'TENDERLY', 'WINNINGLY', 'WISTFULLY'
+      ],
+      verbs = ['ADORES', 'ATTRACTS', 'CARES FOR', 'CHERISHES', 'CLINGS TO', 'DESIRES', 'HOLDS DEAR', 'HOPES FOR', 'HUNGERS FOR', 'IS WEDDED TO', 'LIKES', 'LONGS FOR', 'LOVES', 'LUSTS AFTER', 'PANTS FOR', 'PINES FOR', 'PRIZES', 'SIGHS FOR', 'TEMPTS',
+        'THIRSTS FOR', 'TREASURES', 'WANTS', 'WISHES', 'WOOS', 'YEARNS FOR'
+      ];
+
+    // selects a random number from the array
+    function rand_range(maximum) {
+      return Math.floor(Math.random() * (maximum + 1));
+    }
+
+    // prints the word of the array at the position picked by the rand range function
+    function choose(array) {
+      return array[rand_range(array.length - 1)];
+    }
+
+    // maybe prints the word depending on what random number is picked
+    function maybe(words) {
+      if (Math.random() > 0.5) {
+        return ' ' + choose(words);
+      }
+      return '';
+    }
+
+    // a longer sentence
+    function longer() {
+      return ' MY' + maybe(adjectives) + ' ' + choose(nouns) + maybe(adverbs) + ' ' + choose(verbs) + ' YOUR' + maybe(adjectives) + ' ' + choose(nouns) + '.';
+    }
+
+    // a shorter sentence
+    function shorter() {
+      return ' ' + choose(adjectives) + ' ' + choose(nouns) + '.';
+    }
+
+    // composes the letter
+    function letter() {
+      var i, type, you_are = false,
+        text = '';
+      text = text + choose(first) + ' ' + choose(second) + '<br /><br />';
+
+      for (i = 0; i < 5; i = i + 1) {
+        type = choose(['longer', 'shorter']);
+        // if longer gets chosen then print longer
+        if (type === 'longer') {
+          text = text + longer();
+          you_are = false;
+          // if shorter gets chosen either choose my + shorter or choose you are + shorter
+        } else {
+          if (you_are) {
+            text = text.slice(0, -1) + ': MY' + shorter();
+            you_are = false;
+          } else {
+            text = text + ' YOU ARE MY' + shorter();
+            you_are = true;
+          }
         }
-
-        a {
-            color: #117;
-            text-decoration: none;
-        }
-
-        #main {
-            padding-top: 18px;
-            width: 70%;
-            margin-left: 15%;
-        }
-
-        #main div {
-            font-weight: bold;
-            padding-bottom: 9px;
-        }
-        /* ]]> */
-    </style>
-    <script type="text/javascript">
-        var t = 0,
-            first = ['DARLING', 'DEAR', 'HONEY', 'JEWEL'],
-            second = ['DUCK', 'LOVE', 'MOPPET', 'SWEETHEART'],
-            adjectives = ['ADORABLE', 'AFFECTIONATE', 'AMOROUS', 'ANXIOUS', 'ARDENT', 'AVID', 'BREATHLESS', 'BURNING', 'COVETOUS', 'CRAVING', 'CURIOUS', 'DARLING', 'DEAR', 'DEVOTED', 'EAGER', 'EROTIC', 'FERVENT', 'FOND', 'IMPATIENT', 'KEEN', 'LITTLE', 'LOVEABLE', 'LOVESICK', 'LOVING', 'PASSIONATE', 'PRECIOUS', 'SWEET', 'SYMPATHETIC', 'TENDER', 'UNSATISFIED', 'WISTFUL'],
-            nouns = ['ADORATION', 'AFFECTION', 'AMBITION', 'APPETITE', 'ARDOUR', 'CHARM', 'DESIRE', 'DEVOTION', 'EAGERNESS', 'ENCHANTMENT', 'ENTHUSIASM', 'FANCY', 'FELLOW FEELING', 'FERVOUR', 'FONDNESS', 'HEART', 'HUNGER', 'INFATUATION', 'LIKING', 'LONGING', 'LOVE', 'LUST', 'PASSION', 'RAPTURE', 'SYMPATHY', 'TENDERNESS', 'THIRST', 'WISH', 'YEARNING'],
-            adverbs = ['AFFECTIONATELY', 'ANXIOUSLY', 'ARDENTLY', 'AVIDLY', 'BEAUTIFULLY', 'BREATHLESSLY', 'BURNINGLY', 'COVETOUSLY', 'CURIOUSLY', 'DEVOTEDLY', 'EAGERLY', 'FERVENTLY', 'FONDLY', 'IMPATIENTLY', 'KEENLY', 'LOVINGLY', 'PASSIONATELY', 'SEDUCTIVELY', 'TENDERLY', 'WINNINGLY', 'WISTFULLY'],
-            verbs = ['ADORES', 'ATTRACTS', 'CARES FOR', 'CHERISHES', 'CLINGS TO', 'DESIRES', 'HOLDS DEAR', 'HOPES FOR', 'HUNGERS FOR', 'IS WEDDED TO', 'LIKES', 'LONGS FOR', 'LOVES', 'LUSTS AFTER', 'PANTS FOR', 'PINES FOR', 'PRIZES', 'SIGHS FOR', 'TEMPTS', 'THIRSTS FOR', 'TREASURES', 'WANTS', 'WISHES', 'WOOS', 'YEARNS FOR'];
-
-// selects a random number from the array
-        function rand_range(maximum) {
-            return Math.floor(Math.random() * (maximum + 1));
-        }
-
-// prints the word of the array at the position picked by the rand range function
-        function choose(array) {
-            return array[rand_range(array.length - 1)];
-        }
-
-// maybe prints the word depending on what random number is picked
-        function maybe(words) {
-            if (Math.random() > 0.5) {
-                return ' ' + choose(words);
-            }
-            return '';
-        }
-
-// a longer sentence
-        function longer() {
-            return ' MY' + maybe(adjectives) + ' ' + choose(nouns) + maybe(adverbs) + ' ' + choose(verbs) + ' YOUR' + maybe(adjectives) + ' ' + choose(nouns) + '.';
-        }
-
-// a shorter sentence
-        function shorter() {
-            return ' ' + choose(adjectives) + ' ' + choose(nouns) + '.';
-        }
-
-// composes the letter
-        function letter() {
-            var i, type, you_are = false,
-                text = '';
-            text = text + choose(first) + ' ' + choose(second) + '<br /><br />';
-
-            for (i = 0; i < 5; i = i + 1) {
-                type = choose(['longer', 'shorter']);
-// if longer gets chosen then print longer
-                if (type === 'longer') {
-                    text = text + longer();
-                    you_are = false;
-                    // if shorter gets chosen either choose my + shorter or choose you are + shorter
-                } else {
-                    if (you_are) {
-                        text = text.slice(0, -1) + ': MY' + shorter();
-                        you_are = false;
-                    } else {
-                        text = text + ' YOU ARE MY' + shorter();
-                        you_are = true;
-                    }
-                }
-            }
-            text = text + '<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;YOURS ' + choose(adverbs) + '<br /><br />' + '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M.U.C.';
-            return text;
-        }
+      }
+      text = text +
+        '<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;YOURS ' +
+        choose(adverbs) + '<br /><br />' +
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M.U.C.';
+      return text;
+    }
 
 
-// repeats the letter like a litany
-        function litany() {
-            var last, main = document.getElementById('main');
-            if (4 > t) {
-                t += 1;
-            } else {
-                main.removeChild(document.getElementById('main').firstChild);
-            }
-            last = document.createElement('div');
-            last.innerHTML = letter();
-            main.appendChild(last);
-        }
+    // repeats the letter like a litany
+    function litany() {
+      // set a variable called main that sets or returns the HTML content of an element.
+      var main = document.getElementById('main');
+      // if 4 is bigger than t then t = t + 1
+      if (4 > t) {
+        t += 1;
+        // if 4 is smaller than t then remove main's child
+      } else {
+        main.removeChild(document.getElementById('main').firstChild);
+      }
+      // create an HTML element
+      var last = document.createElement('div');
+      // get the html content, in this case the div created by 'last'
+      last.innerHTML = letter();
+      // at the end add another div created by last
+      main.appendChild(last);
+    }
 
-        function produce_litany() {
-            litany();
-            setInterval(litany, 10000);
-        }
-    </script>
-    <title>Love Letter Generator</title>
+    function produce_litany() {
+      litany();
+      setInterval(litany, 5000);
+    }
+  </script>
+  <title>Love Letter Generator</title>
 </head>
 
 <body onload="produce_litany();">
-    <div id="main"></div>
+  <div id="main"></div>
 </body>
 
 </html>
