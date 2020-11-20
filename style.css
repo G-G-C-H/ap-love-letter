@@ -1,5 +1,5 @@
 html {
-  background: url("assets/bg-img1.png") no-repeat center center fixed; 
+  background: url("assets/bg-img1.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -12,6 +12,7 @@ body {
   margin: 0 0 0 18pt;
   font-family: Optima, sans-serif;
   font-size: 16pt;
+  text-transform: lowercase;
 }
 
 a {

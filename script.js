@@ -4,8 +4,10 @@ var t = 0,
   adjectives = ['ADORABLE', 'AFFECTIONATE', 'AMOROUS', 'ANXIOUS', 'ARDENT', 'AVID', 'BREATHLESS', 'BURNING', 'COVETOUS', 'CRAVING', 'CURIOUS', 'DARLING', 'DEAR', 'DEVOTED', 'EAGER', 'EROTIC', 'FERVENT', 'FOND', 'IMPATIENT', 'KEEN', 'LITTLE',
     'LOVEABLE', 'LOVESICK', 'LOVING', 'PASSIONATE', 'PRECIOUS', 'SWEET', 'SYMPATHETIC', 'TENDER', 'UNSATISFIED', 'WISTFUL'
   ],
-  nouns = ['ADORATION', 'AFFECTION', 'AMBITION', 'APPETITE', 'ARDOUR', 'CHARM', 'DESIRE', 'DEVOTION', 'EAGERNESS', 'ENCHANTMENT', 'ENTHUSIASM', 'FANCY', 'FELLOW FEELING', 'FERVOUR', 'FONDNESS', 'HEART', 'HUNGER', 'INFATUATION', 'LIKING',
-    'LONGING', 'LOVE', 'LUST', 'PASSION', 'RAPTURE', 'SYMPATHY', 'TENDERNESS', 'THIRST', 'WISH', 'YEARNING'
+  nouns = ['EXPANSE', 'LAKE', 'OCEAN', 'SEA', 'WATER', 'POND', 'ABUNDANCE', 'BLUE', 'BRINE', 'PLETHORA', 'SEABED', 'SHORE', 'FRESHWATER', 'RIVER', 'MOON', 'LAGOON', 'POOL', 'TIDEPOOL', 'SAND',
+    'FJORD', 'TYPHOON', 'CLOUD', 'WAVE', 'BASIN', 'ICE', 'SURFACE', 'ABYSS', 'CREVICE', 'STRETCH'
+  ],
+  nouns2 = ['dimples', 'ears', 'fingers', 'toes', 'feet', 'cheek', 'nose', 'knee', 'nipple', 'chest', 'eyebrow', 'hair', 'hip', 'groin', 'thighs',
   ],
   adverbs = ['AFFECTIONATELY', 'ANXIOUSLY', 'ARDENTLY', 'AVIDLY', 'BEAUTIFULLY', 'BREATHLESSLY', 'BURNINGLY', 'COVETOUSLY', 'CURIOUSLY', 'DEVOTEDLY', 'EAGERLY', 'FERVENTLY', 'FONDLY', 'IMPATIENTLY', 'KEENLY', 'LOVINGLY', 'PASSIONATELY',
     'SEDUCTIVELY', 'TENDERLY', 'WINNINGLY', 'WISTFULLY'
@@ -34,7 +36,7 @@ function maybe(words) {
 
 // a longer sentence
 function longer() {
-  return ' MY' + maybe(adjectives) + ' ' + choose(nouns) + maybe(adverbs) + ' ' + choose(verbs) + ' YOUR' + maybe(adjectives) + ' ' + choose(nouns) + '.';
+  return ' MY' + maybe(adjectives) + ' ' + choose(nouns) + maybe(adverbs) + ' ' + choose(verbs) + ' YOUR' + maybe(adjectives) + ' ' + choose(nouns2) + '.';
 }
 
 // a shorter sentence
@@ -67,8 +69,8 @@ function letter() {
   }
   text = text +
     '<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;YOURS ' +
-    choose(adverbs) + '<br /><br />' +
-    '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M.U.C.';
+    choose(adverbs) + ',<br /><br />' +
+    '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The future';
   return text;
 }
 
