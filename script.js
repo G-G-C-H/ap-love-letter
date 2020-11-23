@@ -1,19 +1,19 @@
 var t = 0,
-  first = ['DARLING', 'DEAR', 'HONEY', 'JEWEL'],
-  second = ['DUCK', 'LOVE', 'MOPPET', 'SWEETHEART'],
+  first = [],
+  second = [],
   adjectives = ['ADORABLE', 'AFFECTIONATE', 'AMOROUS', 'ANXIOUS', 'ARDENT', 'AVID', 'BREATHLESS', 'BURNING', 'COVETOUS', 'CRAVING', 'CURIOUS', 'DARLING', 'DEAR', 'DEVOTED', 'EAGER', 'EROTIC', 'FERVENT', 'FOND', 'IMPATIENT', 'KEEN', 'LITTLE',
-    'LOVEABLE', 'LOVESICK', 'LOVING', 'PASSIONATE', 'PRECIOUS', 'SWEET', 'SYMPATHETIC', 'TENDER', 'UNSATISFIED', 'WISTFUL'
+    'LOVEABLE', 'LOVESICK', 'LOVING', 'PASSIONATE', 'PRECIOUS', 'SWEET', 'SYMPATHETIC', 'TENDER', 'UNSATISFIED', 'WISTFUL', 'severe', 'moderate', 'good', 'rough', 'slight'
   ],
   nouns = ['EXPANSE', 'LAKE', 'OCEAN', 'SEA', 'WATER', 'POND', 'ABUNDANCE', 'BLUE', 'BRINE', 'PLETHORA', 'SEABED', 'SHORE', 'FRESHWATER', 'RIVER', 'MOON', 'LAGOON', 'POOL', 'TIDEPOOL', 'SAND',
     'FJORD', 'TYPHOON', 'CLOUD', 'WAVE', 'BASIN', 'ICE', 'SURFACE', 'ABYSS', 'CREVICE', 'STRETCH'
   ],
-  nouns2 = ['dimples', 'ears', 'fingers', 'toes', 'feet', 'cheek', 'nose', 'knee', 'nipple', 'chest', 'eyebrow', 'hair', 'hip', 'groin', 'thighs',
+  nouns2 = ['dimple', 'ear', 'finger', 'toe', 'foot', 'cheek', 'nose', 'knee', 'nipple', 'chest', 'eyebrow', 'hair', 'hip', 'groin', 'thigh',
   ],
   adverbs = ['AFFECTIONATELY', 'ANXIOUSLY', 'ARDENTLY', 'AVIDLY', 'BEAUTIFULLY', 'BREATHLESSLY', 'BURNINGLY', 'COVETOUSLY', 'CURIOUSLY', 'DEVOTEDLY', 'EAGERLY', 'FERVENTLY', 'FONDLY', 'IMPATIENTLY', 'KEENLY', 'LOVINGLY', 'PASSIONATELY',
-    'SEDUCTIVELY', 'TENDERLY', 'WINNINGLY', 'WISTFULLY'
+    'SEDUCTIVELY', 'TENDERLY', 'WINNINGLY', 'WISTFULLY', 'occasionally'
   ],
   verbs = ['ADORES', 'ATTRACTS', 'CARES FOR', 'CHERISHES', 'CLINGS TO', 'DESIRES', 'HOLDS DEAR', 'HOPES FOR', 'HUNGERS FOR', 'IS WEDDED TO', 'LIKES', 'LONGS FOR', 'LOVES', 'LUSTS AFTER', 'PANTS FOR', 'PINES FOR', 'PRIZES', 'SIGHS FOR', 'TEMPTS',
-    'THIRSTS FOR', 'TREASURES', 'WANTS', 'WISHES', 'WOOS', 'YEARNS FOR'
+    'THIRSTS FOR', 'TREASURES', 'WANTS', 'WISHES for', 'WOOS', 'YEARNS FOR'
   ];
 
 
@@ -37,7 +37,8 @@ function maybe(words) {
 
 // a longer sentence
 function longer() {
-  return ' MY' + maybe(adjectives) + ' ' + choose(nouns) + maybe(adverbs) + ' ' + choose(verbs) + ' YOUR' + maybe(adjectives) + ' ' + choose(nouns2) + '.';
+  // return ' the' + maybe(adjectives) + ' ' + choose(nouns) + maybe(adverbs) + ' ' + choose(verbs) + ' the' + maybe(adjectives) + ' ' + choose(nouns2) + '.';
+  return ' the ' + choose(nouns) + ' ' + maybe(adverbs) + ' ' + choose(verbs) + ' the ' + maybe(adjectives) + ' ' + choose(nouns2) + '\'s '+ choose(nouns) + ', ' + choose(nouns2) + ' and ' + choose(nouns2) + '.';
 }
 
 // a shorter sentence
@@ -49,7 +50,7 @@ function shorter() {
 function letter() {
   var i, type, you_are = false,
     text = '';
-  text = text + maybe(first) + ' ' + choose(second) + ',' + '<br /><br />';
+  text = text + choose(adjectives) + ' ' + choose(nouns2) + ',' + '<br /><br />';
 
   for (i = 0; i < 5; i = i + 1) {
     type = choose(['longer', 'shorter']);
