@@ -3,17 +3,27 @@ var t = 0,
   second = [],
   adjectives = ['ADORABLE', 'AFFECTIONATE', 'AMOROUS', 'ANXIOUS', 'ARDENT', 'AVID', 'BREATHLESS', 'BURNING', 'COVETOUS', 'CRAVING', 'CURIOUS', 'DARLING', 'DEAR', 'DEVOTED', 'EAGER', 'EROTIC', 'FERVENT', 'FOND', 'IMPATIENT', 'KEEN', 'LITTLE',
     'LOVEABLE', 'LOVESICK', 'LOVING', 'PASSIONATE', 'PRECIOUS', 'SWEET', 'SYMPATHETIC', 'TENDER', 'UNSATISFIED', 'WISTFUL', 'severe', 'moderate', 'good', 'rough', 'slight'
-  ],
+  ];
+
   nouns = ['EXPANSE', 'LAKE', 'OCEAN', 'SEA', 'WATER', 'POND', 'ABUNDANCE', 'BLUE', 'BRINE', 'PLETHORA', 'SEABED', 'SHORE', 'FRESHWATER', 'RIVER', 'MOON', 'LAGOON', 'POOL', 'TIDEPOOL', 'SAND',
     'FJORD', 'TYPHOON', 'CLOUD', 'WAVE', 'BASIN', 'ICE', 'SURFACE', 'ABYSS', 'CREVICE', 'STRETCH'
-  ],
+  ];
+
   nouns2 = ['dimple', 'ear', 'finger', 'toe', 'foot', 'cheek', 'nose', 'knee', 'nipple', 'chest', 'eyebrow', 'hair', 'hip', 'groin', 'thigh',
-  ],
+  ];
+
+  nouns3 = ['cyclone', 'hurricane', 'monsoon', 'squall', 'tornado', 'wind', 'windstorm', 'blast', 'blow', 'burst', 'chinook', 'mistral', 'outbreak', 'outburst', 'tempest', 'typhoon',
+  ];
+
   adverbs = ['AFFECTIONATELY', 'ANXIOUSLY', 'ARDENTLY', 'AVIDLY', 'BEAUTIFULLY', 'BREATHLESSLY', 'BURNINGLY', 'COVETOUSLY', 'CURIOUSLY', 'DEVOTEDLY', 'EAGERLY', 'FERVENTLY', 'FONDLY', 'IMPATIENTLY', 'KEENLY', 'LOVINGLY', 'PASSIONATELY',
     'SEDUCTIVELY', 'TENDERLY', 'WINNINGLY', 'WISTFULLY', 'occasionally'
-  ],
+  ];
+
   verbs = ['ADORES', 'ATTRACTS', 'CARES FOR', 'CHERISHES', 'CLINGS TO', 'DESIRES', 'HOLDS DEAR', 'HOPES FOR', 'HUNGERS FOR', 'IS WEDDED TO', 'LIKES', 'LONGS FOR', 'LOVES', 'LUSTS AFTER', 'PANTS FOR', 'PINES FOR', 'PRIZES', 'SIGHS FOR', 'TEMPTS',
     'THIRSTS FOR', 'TREASURES', 'WANTS', 'WISHES for', 'WOOS', 'YEARNS FOR'
+  ];
+
+  verbs2 = ['hold', 'cuddle', 'clasp','squeeze', 'clutch', 'seize', 'grab', 'nuzzle', 'caress', 'enfold', 'enclasp', 'encircle', 'enclose', 'envelop', 'canoodle', 'embosom'
   ];
 
 
@@ -46,6 +56,10 @@ function shorter() {
   return ' ' + choose(adjectives) + ' ' + choose(nouns) + '.';
 }
 
+function sea() {
+  return choose(nouns);
+}
+
 // composes the letter
 function letter() {
   var i, type, you_are = false,
@@ -61,10 +75,10 @@ function letter() {
       // if shorter gets chosen either choose my + shorter or choose you are + shorter
     } else {
       if (you_are) {
-        text = text.slice(0, -1) + ': MY' + shorter();
+        text = text.slice(0, -1) + ': ' + shorter();
         you_are = false;
       } else {
-        text = text + ' YOU ARE MY' + shorter();
+        text = text + ' ' + choose(verbs2) + ' the ' + shorter();
         you_are = true;
       }
     }

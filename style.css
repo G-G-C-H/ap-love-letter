@@ -1,3 +1,8 @@
+@font-face {
+  font-family: meta-old-french;
+  src: url('fonts/meta-old-french.ttf');
+}
+
 html {
   background: url("assets/bg-img1.png") no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -10,9 +15,10 @@ body {
   /* background: #000;
   color: #ccc; */
   margin: 0 0 0 18pt;
-  font-family: Optima, sans-serif;
+  font-family: meta-old-french, serif;
   font-size: 16pt;
   text-transform: lowercase;
+  color: rgb(0, 4, 89);
 }
 
 a {
@@ -44,4 +50,16 @@ a {
   left: 50%;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
+}
+
+.truthButton {
+  border-radius: 30px;
+  font-family: meta-old-french, serif;
+  font-size: 16pt;
+  text-transform: lowercase;
+  padding: 12px 38px;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(0, 4, 89);
+  border: 2px solid rgb(0, 4, 89);
+
 }
