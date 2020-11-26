@@ -70,7 +70,7 @@ a {
 @media screen and (max-width: 376px) {
 body,html{
     font-size: 22pt;
-    line-height: 120%;
+    line-height: 140%;
     letter-spacing: -0.1px;
 }
 
