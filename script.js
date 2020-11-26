@@ -15,16 +15,25 @@ var t = 0,
   nouns3 = ['cyclone', 'hurricane', 'monsoon', 'squall', 'tornado', 'wind', 'windstorm', 'blast', 'blow', 'burst', 'chinook', 'mistral', 'outbreak', 'outburst', 'tempest', 'typhoon',
   ];
 
+  nouns4 = ['earth', 'gravel', 'lava', 'metal', 'rubble', 'slab', 'bedrock', 'boulder', 'cobblestone', 'crag', 'crust', 'lodge', 'mass', 'mineral', 'ore', 'pebble', 'promontory', 'quarry', 'reef', 'shelf'
+  ];
+
   adverbs = ['AFFECTIONATELY', 'ANXIOUSLY', 'ARDENTLY', 'AVIDLY', 'BEAUTIFULLY', 'BREATHLESSLY', 'BURNINGLY', 'COVETOUSLY', 'CURIOUSLY', 'DEVOTEDLY', 'EAGERLY', 'FERVENTLY', 'FONDLY', 'IMPATIENTLY', 'KEENLY', 'LOVINGLY', 'PASSIONATELY',
     'SEDUCTIVELY', 'TENDERLY', 'WINNINGLY', 'WISTFULLY', 'occasionally'
   ];
 
-  verbs = ['ADORES', 'ATTRACTS', 'CARES FOR', 'CHERISHES', 'CLINGS TO', 'DESIRES', 'HOLDS DEAR', 'HOPES FOR', 'HUNGERS FOR', 'IS WEDDED TO', 'LIKES', 'LONGS FOR', 'LOVES', 'LUSTS AFTER', 'PANTS FOR', 'PINES FOR', 'PRIZES', 'SIGHS FOR', 'TEMPTS',
+  verbs = ['ADORES', 'ATTRACTS', 'CARES FOR', 'CHERISHES', 'CLINGS TO', 'DESIRES', 'HOLDS DEAR', 'HOPES FOR', 'HUNGERS FOR', 'IS WEDDED TO', 'LONGS FOR', 'LOVES', 'LUSTS AFTER', 'PANTS FOR', 'PINES FOR', 'PRIZES', 'SIGHS FOR', 'TEMPTS',
     'THIRSTS FOR', 'TREASURES', 'WANTS', 'WISHES for', 'WOOS', 'YEARNS FOR'
   ];
 
-  verbs2 = ['hold', 'cuddle', 'clasp','squeeze', 'clutch', 'seize', 'grab', 'nuzzle', 'caress', 'enfold', 'enclasp', 'encircle', 'enclose', 'envelop', 'canoodle', 'embosom'
+  verbs2 = ['hold', 'clasp','squeeze', 'clutch', 'seize', 'grab', 'nuzzle', 'caress', 'enfold', 'enclasp', 'encircle', 'enclose', 'envelop', 'canoodle', 'embosom'
   ];
+
+  time = ['while', 'whilst', 'though', 'instantly'];
+
+  time2 = ['always', 'unceasingly', 'regularly', 'never'];
+
+  question = ['Maybe', 'Perhaps', 'of course', 'certainly'];
 
 
 // selects a random number from the array
@@ -48,49 +57,46 @@ function maybe(words) {
 // a longer sentence
 function longer() {
   // return ' the' + maybe(adjectives) + ' ' + choose(nouns) + maybe(adverbs) + ' ' + choose(verbs) + ' the' + maybe(adjectives) + ' ' + choose(nouns2) + '.';
-  return ' the ' + choose(nouns) + ' ' + maybe(adverbs) + ' ' + choose(verbs) + ' the ' + maybe(adjectives) + ' ' + choose(nouns2) + '\'s '+ choose(nouns) + ', ' + choose(nouns2) + ' and ' + choose(nouns2) + '.';
+  return ' ' + maybe(time) + ' the ' + choose(nouns) + ' ' + maybe(adverbs) + ' ' + choose(verbs) + ' the ' + ' ' + choose(nouns2) + '\'s '+ maybe(adjectives) + ' ' + choose(nouns4) ;
 }
 
 // a shorter sentence
 function shorter() {
-  return ' ' + choose(adjectives) + ' ' + choose(nouns) + '.';
+  return ' ' + choose(adjectives) + ' ' + choose(nouns);
 }
 
-function sea() {
-  return choose(nouns);
+//
+function another() {
+  return ' ' + maybe(question) + ' you could ' + maybe(time2) + ' ' + choose(verbs2) + ' the ' + maybe(adjectives) + ' ' + choose(nouns3);
 }
+
 
 // composes the letter
 function letter() {
   var i, type, you_are = false,
     text = '';
-  text = text + choose(adjectives) + ' ' + choose(nouns2) + ',' + '<br /><br />';
 
-  for (i = 0; i < 5; i = i + 1) {
+  for (i = 0; i < 3; i = i + 1) {
     type = choose(['longer', 'shorter']);
-    // if longer gets chosen then print longer
     if (type === 'longer') {
-      text = text + longer();
+      text = text + '<br>' + longer() + '<br>';
       you_are = false;
-      // if shorter gets chosen either choose my + shorter or choose you are + shorter
     } else {
       if (you_are) {
-        text = text.slice(0, -1) + ': ' + shorter();
+        text = text + '<br>' + 'Quiet' + shorter() + '<br>';
         you_are = false;
       } else {
-        text = text + ' ' + choose(verbs2) + ' the ' + shorter();
+        text = text + '<br>' + another() + '<br>';
         you_are = true;
       }
     }
   }
-  text = text +
-    '<br /><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;YOURS ' +
-    choose(adverbs) + ',<br /><br />' +
-    '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the womb of time';
   return text;
 }
+
+document.getElementById("div").addEventListener("click", showTruth);
 
 // a way of getting our letter function and reproducing it in html
 function showTruth() {
   document.getElementById('div').innerHTML = letter();
-}
+};
