@@ -67,7 +67,7 @@ a {
 }
 
 /* mobile settings! */
-@media screen and (max-width: 376px) {
+@media screen and (max-width: 500px) {
 body,html{
     font-size: 22pt;
     line-height: 140%;
