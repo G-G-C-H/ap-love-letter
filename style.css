@@ -57,13 +57,14 @@ a {
 .truthButton {
   border-radius: 30px;
   font-family: meta-old-french, serif;
-  font-size: 16pt;
+  font-size: 20pt;
+  line-height: 120%;
+  text-align: center;
   text-transform: lowercase;
   padding: 12px 38px;
   background-color: rgba(255, 255, 255, 0);
   color: rgb(0, 4, 89);
   border: 2px solid rgb(0, 4, 89);
-  font-size: 20pt;
 }
 
 /* mobile settings! */
