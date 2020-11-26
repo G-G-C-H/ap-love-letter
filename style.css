@@ -29,16 +29,16 @@ a {
 }
 
 
-#main {
+/* #main {
   padding-top: 18px;
   width: 70%;
   margin-left: 15%;
-}
+} */
 
-#main div {
+/* #main div {
   font-weight: bold;
   padding-bottom: 9px;
-}
+} */
 
 .container {
   height:100%;
@@ -63,6 +63,37 @@ a {
   background-color: rgba(255, 255, 255, 0);
   color: rgb(0, 4, 89);
   border: 2px solid rgb(0, 4, 89);
-  text-transform: none;
   font-size: 20pt;
+}
+
+/* mobile settings! */
+@media screen and (max-width: 376px) {
+body,html{
+    font-size: 22pt;
+    line-height: 120%;
+    letter-spacing: -0.1px;
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.truthButton {
+  border-radius: 30px;
+  font-family: meta-old-french, serif;
+  font-size: 16pt;
+  text-transform: lowercase;
+  text-align: center;
+  padding: 12px 38px;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgb(0, 4, 89);
+  border: 2px solid rgb(0, 4, 89);
+  font-size: 20pt;
+}
+
 }
