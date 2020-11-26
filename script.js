@@ -9,7 +9,7 @@ var t = 0,
     'FJORD', 'TYPHOON', 'CLOUD', 'WAVE', 'BASIN', 'ICE', 'SURFACE', 'ABYSS', 'CREVICE', 'STRETCH'
   ];
 
-  nouns2 = ['dimple', 'ear', 'finger', 'toe', 'foot', 'cheek', 'nose', 'knee', 'nipple', 'chest', 'eyebrow', 'hair', 'hip', 'groin', 'thigh',
+  nouns2 = ['dimple', 'ear', 'finger', 'toe', 'foot', 'cheek', 'nose', 'knee', 'nipple', 'chest', 'eyebrow', 'hair', 'hip', 'groin', 'thigh', 'neck', 'ankle', 'wrist', 'clavicle', 'face', 'pelvis', 'elbow', 'navel', 'breast', 'eyelash', 'mouth', 'armpit'
   ];
 
   nouns3 = ['cyclone', 'hurricane', 'monsoon', 'squall', 'tornado', 'wind', 'windstorm', 'blast', 'blow', 'burst', 'chinook', 'mistral', 'outbreak', 'outburst', 'tempest', 'typhoon',
@@ -26,7 +26,7 @@ var t = 0,
     'THIRSTS FOR', 'TREASURES', 'WANTS', 'WISHES for', 'WOOS', 'YEARNS FOR'
   ];
 
-  verbs2 = ['hold', 'clasp','squeeze', 'clutch', 'seize', 'grab', 'nuzzle', 'caress', 'enfold', 'enclasp', 'encircle', 'enclose', 'envelop', 'canoodle', 'embosom'
+  verbs2 = ['hold', 'clasp','squeeze', 'clutch', 'seize', 'grab', 'nuzzle', 'caress', 'enfold', 'enclasp', 'encircle', 'enclose', 'envelop', 'canoodle', 'embosom', 'kiss', 'feel', 'stroke', 'gaze', 'clutch', 'absorb', 'swallow'
   ];
 
   time = ['while', 'whilst', 'though', 'instantly'];
